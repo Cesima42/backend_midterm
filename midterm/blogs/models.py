@@ -20,6 +20,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, null=False, related_name='posts')
+    image = models.ImageField(upload_to='images/', null=True, max_length=255)
 
     def create(self, validated_data):
         return Post.objects.create(**validated_data)
